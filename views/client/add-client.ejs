@@ -6,18 +6,21 @@
         <div class="flex-container">
             <form class="main-form" action="/client/<% if(editMode){ %>edit-client<% } else { %>add-client<% }%>" method="POST">
                 <label for="name">Nome</label>
-                <input type="text" name="name" value="<% if(editMode) { %><%= %><% } %>" required>
+                <input type="text" name="name" value="<% if(editMode) { %><%= editClient.name %><% } %>" required>
                 <label for="email">E-mail</label>
-                <input type="email" name="email" value="<% if(editMode) { %><%= %><% } %>" required>
+                <input type="email" name="email" value="<% if(editMode) { %><%= editClient.email %><% } %>" required>
                 <label for="tel">Telefone</label>
-                <input type="tel" name="tel" value="<% if(editMode) { %><%= %><% } %>" required>
+                <input type="tel" name="tel" value="<% if(editMode) { %><%= editClient.tel %><% } %>" required>
                 <label>Endereço</label>
                 <div>
                     <label for="x">X:</label>
-                    <input type="number" name="x">
+                    <input type="number" name="x" value="<% if(editMode) { %><%= editClient.addressX %><% } %>">
                     <label for="y">Y:</label>
-                    <input type="number" name="y">
+                    <input type="number" name="y" value="<% if(editMode) { %><%= editClient.addressY %><% } %>">
                 </div>
+                <% if(editMode){ %>
+                    <input type="hidden" name="clientId" value="<%= editClient.id %>">
+                <% } %>
                 <button type="submit">Adicionar</button>
             </form>
         </div>

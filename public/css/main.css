@@ -102,14 +102,14 @@ button[type=submit]:hover{
 
 .main-table .rm-td {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .main-table tbody .rm-button {
     background-color: #ac1111;
     border: none;
     font-size: large;
-    color: var(--secondary);
+    color: var(--background);
     border-radius: 8px;
 }
 
@@ -118,3 +118,17 @@ button[type=submit]:hover{
     cursor: pointer;
 }
 
+.main-table tbody .edit-button {
+    background-color: var(--tertiary);
+    border: none;
+    font-size: large;
+    color: var(--primary);
+    border-radius: 8px;
+    padding: 0 0.2rem 0 0.2rem;
+    text-decoration: none;
+}
+
+.main-table tbody .edit-button:hover {
+    background-color: var(--quaternary);
+    cursor: pointer;
+}

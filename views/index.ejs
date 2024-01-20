@@ -1,4 +1,5 @@
 <%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
 </head>
 <body>
     <main>
@@ -24,6 +25,7 @@
                             <td><%= c.tel %></td>
                             <td>X:<%= c.addressX %> Y:<%= c.addressY %></td>
                             <td class="rm-td">
+                                <a href="/edit-client/<%= c.id %>" class="edit-button">Editar</a>
                                 <form action="/client/remove" method="POST">
                                     <input type="hidden" name="valueId" value="<%= c.id %>">
                                     <input class="rm-button" type="submit" value="Excluir">
@@ -33,7 +35,9 @@
                     <% } %>
                 </tbody>
             </table>
-            
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+            <script src="/js/datatable.js"></script>
         <% } %>
     </main>
 </body>
