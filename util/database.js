@@ -1,10 +1,10 @@
 const Sequelize = require('sequelize')
-const database = 'facilita'
-const username = 'anon'
-const password = '521478'
+const database = ''
+const username = ''
+const password = ''
 const sequelize = new Sequelize(database, username, password, {
     host: 'localhost',
     dialect: 'postgres',
-    schema: 'facilita',
+    schema: database,
   });
 module.exports = sequelize
