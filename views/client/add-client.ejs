@@ -1,0 +1,26 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+    <main>
+        <a class="main-button" href="/">Voltar</a>
+        <div class="flex-container">
+            <form class="main-form" action="/client/<% if(editMode){ %>edit-client<% } else { %>add-client<% }%>" method="POST">
+                <label for="name">Nome</label>
+                <input type="text" name="name" value="<% if(editMode) { %><%= %><% } %>" required>
+                <label for="email">E-mail</label>
+                <input type="email" name="email" value="<% if(editMode) { %><%= %><% } %>" required>
+                <label for="tel">Telefone</label>
+                <input type="tel" name="tel" value="<% if(editMode) { %><%= %><% } %>" required>
+                <label>Endereço</label>
+                <div>
+                    <label for="x">X:</label>
+                    <input type="number" name="x">
+                    <label for="y">Y:</label>
+                    <input type="number" name="y">
+                </div>
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
+    </main>
+</body>
+<%- include('../includes/end.ejs') %>

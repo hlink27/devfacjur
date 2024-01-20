@@ -1,0 +1,40 @@
+<%- include('includes/head.ejs') %>
+</head>
+<body>
+    <main>
+        <a href="/add-client" class="main-button">
+            Add Client
+        </a>
+        <% if(clients.length > 0){ %>
+            <table class="main-table" id="myTable">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Telefone</th>
+                        <th>Coordenada</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(c of clients){ %>
+                        <tr>
+                            <td><%= c.name %></td>
+                            <td><%= c.email %></td>
+                            <td><%= c.tel %></td>
+                            <td>X:<%= c.addressX %> Y:<%= c.addressY %></td>
+                            <td class="rm-td">
+                                <form action="/client/remove" method="POST">
+                                    <input type="hidden" name="valueId" value="<%= c.id %>">
+                                    <input class="rm-button" type="submit" value="Excluir">
+                                </form>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+            
+        <% } %>
+    </main>
+</body>
+<%- include('includes/end.ejs') %>
