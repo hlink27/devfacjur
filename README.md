@@ -1,5 +1,5 @@
 ## Preparando o banco de dados
-Conforme solicitado, o DB utilizado foi o postgresql.  Edite o arquivo ``` /util/database.js ``` de acordo suas configurações:
+Conforme solicitado, o DB utilizado foi o postgresql.  Edite o arquivo ``` /util/database.js ``` de acordo com suas configurações:
 ```
 const database = [Nome do seu banco de dados]
 const username = [Nome de usuário com as devidas permissões]
