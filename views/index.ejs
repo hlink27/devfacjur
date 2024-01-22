@@ -1,10 +1,12 @@
 <%- include('includes/head.ejs') %>
+<script src="/js/calcRoute.js"></script>
+<link rel="stylesheet" href="/css/modal.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
 </head>
 <body>
     <main>
         <a href="/add-client" class="main-button">
-            Add Client
+            Adicionar Cliente
         </a>
         <% if(clients.length > 0){ %>
             <table class="main-table" id="myTable">
@@ -18,7 +20,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <script>let cl1 = []</script>
                     <% for(c of clients){ %>
+                        <script>
+                            cl1.push(
+                                {
+                                    name: "<%= c.name %>",
+                                    addressX: <%= c.addressX %>,
+                                    addressY: <%= c.addressY %>
+                                }
+                            );
+                        </script>
                         <tr>
                             <td><%= c.name %></td>
                             <td><%= c.email %></td>
@@ -33,11 +45,35 @@
                             </td>
                         </tr>
                     <% } %>
+                    <script> const optimalRoute = findOptimalRoute(cl1); </script>
                 </tbody>
             </table>
+            <div>
+                <div id="myModal" class="modal">
+                    <div class="modal-content delete">
+                        <span class="close"></span>
+                        <h2>Ordem de Visita:</h2>
+                        <div>
+                            <script>
+                                let order = 1
+                                for(optRt of optimalRoute){
+                                    document.write(`<h2>${order}º- ${optRt.name}</h2>`)
+                                    order++
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <button class="main-button" onclick="openModal()">Calcular Menor Rota</button>
+                <script>
+                    console.log("Rota otimizada:", optimalRoute);
+                    console.log("Distância total:", calculateTotalDistance(optimalRoute));
+                </script>
+            </div>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
             <script src="/js/datatable.js"></script>
+            <script src="/js/modal.js"></script>
         <% } %>
     </main>
 </body>

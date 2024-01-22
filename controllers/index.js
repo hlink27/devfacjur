@@ -1,4 +1,4 @@
-const Client = require("../models/client")
+const Client = require("../models/client");
 
 exports.getIndex = (req, res, next) => {
     Client.findAll()
@@ -7,6 +7,6 @@ exports.getIndex = (req, res, next) => {
             pageTitle: 'Start',
             path: '/',
             clients: clients
-        })
-    })
+        });
+    });
 }

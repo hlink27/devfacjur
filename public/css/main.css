@@ -27,6 +27,12 @@ main {
 
 .flex-container {
     display: flex;
+    justify-content: flex-start;
+}
+
+.navbar {
+    width: 100%;
+    background-color: var(--primary);
 }
 
 .main-button {
@@ -132,3 +138,17 @@ button[type=submit]:hover{
     background-color: var(--quaternary);
     cursor: pointer;
 }
+
+.dataTables_wrapper label, select {
+    color: var(--tertiary);
+}
+
+.Modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
